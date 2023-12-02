@@ -14,4 +14,4 @@ docker-compose -f ./docker-compose.yml up -d --build --force-recreate
 
 Then navigate to [http://localhost:3000](http://localhost:3000) on your browser and enjoy!
 
-A live preview of the app can be found [here](https://fs-frontend-piamenzfk-brunoramirez.vercel.app/employees)!
+A live preview of the app can be found [here](https://fs-frontend-eta.vercel.app)!
