@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:latest
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - ./data/mongo/products:/data/db
+      - ./init/mongo/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    container_name: mongodb-react
+    command: mongod --auth
+    networks:
+      - fs-react-app
+
+  fs-frontend:
+    image: fs-frontend:1.0
+    ports:
+      - "3000:3000"
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    container_name: fs-frontend
+    restart: on-failure
+    depends_on:
+      - fs-backend
+    networks:
+      - fs-react-app
+      
+  fs-backend:
+    image: fs-backend:1.0
+    ports:
+      - "3010:3010"
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    environment:
+      MONGOURI: mongodb://mongoadmin:password@mongodb:27017/?retryWrites=true&w=majority
+      PORT: 3010
+    container_name: fs-backend
+    restart: on-failure
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    networks:
+      - fs-react-app
+
+networks:
+  fs-react-app:
+    driver: bridge

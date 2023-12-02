@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "cb68bcf5-200a-412b-b0bb-3bd6aab3554a",
+		"name": "Full Stack - Assignment 1",
+		"description": "Assignment 1 for COMP 3123 – Full Stack Development.\n\n| **Sr. #** | **Method** | **Endpoint** | **Response Code** | **Description** |\n| --- | --- | --- | --- | --- |\n| **1** | POST | /api/v1/user/signup | 201 | Allow user to rcreate new account |\n| **2** | POST | /api/v1/user/login | 200 | Allow user to access the system |\n| **3** | GET | /api/v1/emp/employees | 200 | User can get all employee list |\n| **4** | POST | /api/v1/emp/employees | 201 | User can­ create new employee |\n| **5** | GET | /api/v1/emp/employees/{eid} | 200 | User can get employee details by employee id |\n| **6** | PUT | /api/v1/emp/employees/{eid} | 200 | User can update employee details |\n| **7** | DELETE | /api/v1/emp/employees?eid=xxx | ­204 | User can delete employee by Employee id |",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7076950"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "User Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"bramirez\",\n    \"email\": \"bramirez206@hotmail.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/user/signup",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"signup"
+							]
+						},
+						"description": "Adds a user into the `user` collection"
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"bramirez206@hotmail.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/user/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						},
+						"description": "Validates a user"
+					},
+					"response": []
+				}
+			],
+			"description": "User managment endpoints"
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Get All Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/employee",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee"
+							]
+						},
+						"description": "Returns the entire employee collection."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Bruno\",\n    \"last_name\": \"Ramirez\",\n    \"email\": \"bramirez206@hotmail.com\",\n    \"gender\": \"Male\",\n    \"salary\": 15.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/employee",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee"
+							]
+						},
+						"description": "Creates a new Employee in the `employee` collection"
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/employee/6528d8af2c0a7b94f7115835",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"6528d8af2c0a7b94f7115835"
+							]
+						},
+						"description": "Returns one Employee from `employee`"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"test\",\n    \"last_name\": \".\",\n    \"email\": \"bramirez206@hotmail.com\",\n    \"gender\": \"Male\",\n    \"salary\": 15.55\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/employee/6528d8af2c0a7b94f7115835",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"6528d8af2c0a7b94f7115835"
+							]
+						},
+						"description": "Updates a document in the `employee` collection"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/employee?eid=6528956494a6eb5294550f46",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee"
+							],
+							"query": [
+								{
+									"key": "eid",
+									"value": "6528956494a6eb5294550f46"
+								}
+							]
+						},
+						"description": "Deletes a documento in the `employee` collection"
+					},
+					"response": []
+				}
+			],
+			"description": "Employees CRUD endpoints",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJnYmM6YnJ1bm9yYW1pcmV6OmNsYWltIjp0cnVlLCIkX18iOnsiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsiX2lkIjoiaW5pdCIsInVzZXJuYW1lIjoiaW5pdCIsImVtYWlsIjoiaW5pdCIsInBhc3N3b3JkIjoiaW5pdCIsIl9fdiI6ImluaXQifSwic3RhdGVzIjp7ImluaXQiOnsiX2lkIjp0cnVlLCJ1c2VybmFtZSI6dHJ1ZSwiZW1haWwiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJfX3YiOnRydWV9fX0sInNraXBJZCI6dHJ1ZX0sIiRpc05ldyI6ZmFsc2UsIl9kb2MiOnsiX2lkIjoiNjUyODY1NGE2YjRlOGUyZTg4ZDUyNmU3IiwidXNlcm5hbWUiOiJicmFtaXJleiIsImVtYWlsIjoiYnJhbWlyZXoyMDZAaG90bWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMyIsIl9fdiI6MH0sImlhdCI6MTY5NzE2ODk3OSwiaXNzIjoiZ2JjOmJydW5vcmFtaXJlejoxMDEzODAyMDMiLCJhdWQiOiJnYmM6cGVvcGxlIiwiZXhwIjoxNzAyMzUyOTc5fQ.X60YJRVr_NKqlk5xnkDwTbYzOCemcXR0l9wniyaluLI",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "PROD_URL",
+			"value": "http://170.187.155.55:3005",
+			"type": "string"
+		}
+	]
+}
