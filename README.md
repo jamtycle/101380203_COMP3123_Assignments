@@ -1,5 +1,3 @@
-    
-
 # COMP 3123 – Full Stack Development
 
 **Made with love by Bruno🧡 101380203**
@@ -15,3 +13,5 @@ docker-compose -f ./docker-compose.yml up -d --build --force-recreate
 ```
 
 Then navigate to [http://localhost:3000](http://localhost:3000) on your browser and enjoy!
+
+A live preview of the app can be found [here](https://fs-frontend-piamenzfk-brunoramirez.vercel.app/employees)!
